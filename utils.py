@@ -66,9 +66,9 @@ def skeleton(img):
         eroded = cv2.erode(img, element) # 腐蚀
         temp = cv2.dilate(eroded, element) # 膨胀
         temp = cv2.subtract(img, temp) #
-        skel = cv2.bitwise_or(skel, temp) # or操作
+        skel = cv2.bitwise_or(skel, temp) # or操作 得到skel
         img = eroded.copy() #腐蚀过的img
-        zeros = size - cv2.countNonZero(img)
+        zeros = size - cv2.countNonZero(img)  # 非0像素点数
         if zeros == size:
             done = True
 
